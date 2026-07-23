@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="100%" height="100%">
+  <defs>
+    <!-- Soft Drop Shadow -->
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="6" flood-color="#1E1B18" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+
+  <!-- Outer Circular Badge -->
+  <circle cx="250" cy="250" r="220" fill="#FFF9E6" stroke="#FFD166" stroke-width="12" filter="url(#shadow)" />
+  <circle cx="250" cy="250" r="195" fill="none" stroke="#4ECDC4" stroke-width="6" stroke-dasharray="12 12" />
+
+  <!-- Floating Math Shapes & Symbols -->
+  <!-- Plus Symbol -->
+  <g transform="translate(110, 110)">
+    <circle cx="0" cy="0" r="32" fill="#FF6B6B" />
+    <path d="M-12 0 H12 M0 -12 V12" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round" />
+  </g>
+
+  <!-- Minus Symbol -->
+  <g transform="translate(390, 120)">
+    <circle cx="0" cy="0" r="28" fill="#4D96FF" />
+    <path d="M-10 0 H10" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round" />
+  </g>
+
+  <!-- Star -->
+  <polygon points="120,380 128,355 154,355 133,340 141,315 120,330 99,315 107,340 86,355 112,355" fill="#FFD166" />
+
+  <!-- Triangle -->
+  <polygon points="380,380 350,330 410,330" fill="#6BCB77" />
+
+  <!-- Center Pencil Character -->
+  <g filter="url(#shadow)">
+    <!-- Pencil Body -->
+    <rect x="220" y="160" width="60" height="140" rx="8" fill="#FFC048" />
+    <!-- Pencil Eraser -->
+    <rect x="220" y="130" width="60" height="30" rx="6" fill="#FF7675" />
+    <rect x="220" y="152" width="60" height="10" fill="#DFE4EA" />
+    <!-- Pencil Tip -->
+    <polygon points="220,300 280,300 250,350" fill="#FFEAA7" />
+    <polygon points="240,333 260,333 250,350" fill="#2D3436" />
+    
+    <!-- Cute Eyes -->
+    <circle cx="238" cy="210" r="5" fill="#2D3436" />
+    <circle cx="262" cy="210" r="5" fill="#2D3436" />
+    <!-- Smile -->
+    <path d="M242 225 Q250 235 258 225" stroke="#2D3436" stroke-width="3" fill="none" stroke-linecap="round" />
+  </g>
+
+  <!-- Main Text -->
+  <text x="250" y="415" font-family="'Comic Sans MS', 'Bubblegum Sans', sans-serif" font-weight="bold" font-size="34" fill="#2D3436" text-anchor="middle">GRADE 1</text>
+  <text x="250" y="450" font-family="'Comic Sans MS', 'Bubblegum Sans', sans-serif" font-weight="bold" font-size="28" fill="#FF6B6B" text-anchor="middle">MATH</text>
+</svg>

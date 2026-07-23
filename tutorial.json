@@ -1,0 +1,30 @@
+[
+	{
+		"title": "Digital Calculator",
+		"icon": "🧮",
+		"description": "Arithmetic math utility tool.",
+		"tech": "HTML, CSS & JavaScript",
+		"projectUrl": "calculator.html"
+	},
+	{
+		"title": "Word Counter",
+		"icon": "📝",
+		"description": "Real-time text metrics analyzer.",
+		"tech": "Vanilla JavaScript",
+		"projectUrl": "wordCounter.html"
+	},
+	{
+		"title": "Day Of Week",
+		"icon": "📅",
+		"description": "Find the day of the week for any date.",
+		"tech": "Vanilla JavaScript",
+		"projectUrl": "dayOfWeek.html"
+	},
+	{
+		"title": "Number Guesser",
+		"icon": "🔢",
+		"description": "Guess the number between 1 and 100.",
+		"tech": "Vanilla JavaScript",
+		"projectUrl": "numberGuesser.html"
+	}
+]
