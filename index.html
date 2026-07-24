@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8" />
 		<meta content="width=device-width, initial-scale=1.0" name="viewport" />
-		<title>Kiyaw Math | Grade One Basic Learning</title>
+		<title>Kiyaw Math | Elementary Basic Learning</title>
 		<link rel="icon" type="image/ico" href="assets/icons/logo-svg.svg" />
 		<link rel="stylesheet" href="css/global.css" />
 		<!-- Typography & Icons -->
@@ -34,7 +34,14 @@
 				</nav>
 				-->
 				<div class="auth-actions">
-					<button class="btn-primary">Log In</button>
+					<button id="goToLoginBtn" class="btn-primary">Log In</button>
+					<script>
+						document
+							.getElementById("goToLoginBtn")
+							.addEventListener("click", function () {
+								window.location.href = "auth/login.html";
+							});
+					</script>
 				</div>
 			</div>
 		</header>
