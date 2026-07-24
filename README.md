@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <html lang="en-US">
 	<head>
 		<meta
@@ -13675,3 +13676,7 @@ transition: opacity 0.3s ease-in-out;
 
 </body>
 </html>
+=======
+# Grade-one-mathematics
+I am creating this this web app to replicate my former thesis web project.
+>>>>>>> 07bfbb67022ade7c1460a75ae31701c3df59735a
