@@ -1,0 +1,471 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Kiyaw - Log In or Sign Up</title>
+		<!-- Lucide Icons for modern UI symbols -->
+		<script src="https://unpkg.com/lucide@latest"></script>
+		<style>
+			* {
+				box-sizing: border-box;
+				margin: 0;
+				padding: 0;
+				font-family:
+					-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+					Arial, sans-serif;
+			}
+
+			body {
+				background-color: #ffffff;
+				color: #1c1e21;
+				display: flex;
+				flex-direction: column;
+				min-height: 100vh;
+			}
+
+			/* Main Container Split */
+			.main-container {
+				display: flex;
+				flex: 1;
+				width: 100%;
+				max-width: 1200px;
+				margin: 0 auto;
+			}
+
+			/* Left Section */
+			.left-section {
+				flex: 1;
+				padding: 40px 60px;
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
+				border-right: 1px solid #e4e6eb;
+			}
+
+			.fb-logo {
+				width: 48px;
+				height: 48px;
+				color: #0866ff;
+			}
+
+			/* Graphic Collage Container */
+			.collage-container {
+				position: relative;
+				height: 320px;
+				margin: 20px 0;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+
+			/* Floating visual cards to mimic the design */
+			.card-photo {
+				position: absolute;
+				border-radius: 16px;
+				object-fit: cover;
+				box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+			}
+
+			.main-portrait {
+				width: 210px;
+				height: 280px;
+				right: 15%;
+				top: 0;
+				z-index: 2;
+				border-radius: 20px;
+			}
+
+			.sub-plant {
+				width: 160px;
+				height: 180px;
+				left: 12%;
+				top: 30px;
+				z-index: 1;
+			}
+
+			.sub-skate {
+				width: 130px;
+				height: 140px;
+				left: 22%;
+				bottom: 10px;
+				z-index: 3;
+				border: 3px solid #fff;
+			}
+
+			/* Badges / Emojis */
+			.badge-emoji {
+				position: absolute;
+				width: 42px;
+				height: 42px;
+				background: #fff;
+				border-radius: 50%;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+				z-index: 4;
+			}
+
+			.badge-laugh {
+				top: 10px;
+				left: 10%;
+				font-size: 24px;
+			}
+			.badge-heart {
+				right: 8%;
+				bottom: 60px;
+				background: #ff2d55;
+				color: white;
+				font-size: 20px;
+			}
+
+			.avatar-circle {
+				position: absolute;
+				bottom: -10px;
+				left: 38%;
+				width: 70px;
+				height: 70px;
+				border-radius: 50%;
+				border: 3px solid #0866ff;
+				z-index: 5;
+				overflow: hidden;
+			}
+
+			.avatar-circle img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
+
+			/* Tagline Headline */
+			.headline {
+				font-size: 48px;
+				font-weight: 800;
+				line-height: 1.1;
+				letter-spacing: -1px;
+			}
+
+			.headline .blue-text {
+				color: #0866ff;
+			}
+
+			/* Right Section */
+			.right-section {
+				flex: 1;
+				padding: 60px 80px;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				max-width: 520px;
+				margin: 0 auto;
+			}
+
+			.login-header {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				margin-bottom: 28px;
+			}
+
+			.login-header h2 {
+				font-size: 20px;
+				font-weight: 600;
+				color: #1c1e21;
+			}
+
+			.gear-icon {
+				cursor: pointer;
+				color: #1c1e21;
+			}
+
+			/* Account Selection Cards */
+			.account-card {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				padding: 12px 16px;
+				background-color: #f0f2f5;
+				border-radius: 16px;
+				margin-bottom: 12px;
+				cursor: pointer;
+				transition: background-color 0.2s ease;
+			}
+
+			.account-card:hover {
+				background-color: #e4e6eb;
+			}
+
+			.account-info {
+				display: flex;
+				align-items: center;
+				gap: 14px;
+			}
+
+			.profile-img {
+				width: 52px;
+				height: 52px;
+				border-radius: 50%;
+				object-fit: cover;
+			}
+
+			.account-name {
+				font-size: 16px;
+				font-weight: 600;
+				color: #050505;
+			}
+
+			.arrow-icon {
+				color: #65676b;
+				width: 20px;
+				height: 20px;
+			}
+
+			/* Action Buttons */
+			.btn {
+				width: 100%;
+				padding: 12px 16px;
+				border-radius: 24px;
+				font-size: 15px;
+				font-weight: 600;
+				cursor: pointer;
+				text-align: center;
+				background: #ffffff;
+				transition:
+					background-color 0.2s,
+					border-color 0.2s;
+				margin-top: 12px;
+			}
+
+			.btn-secondary {
+				border: 1px solid #ccd0d5;
+				color: #1c1e21;
+			}
+
+			.btn-secondary:hover {
+				background-color: #f5f6f7;
+			}
+
+			.btn-primary-outline {
+				border: 1px solid #0866ff;
+				color: #0866ff;
+				margin-top: 24px;
+			}
+
+			.btn-primary-outline:hover {
+				background-color: #f0f6ff;
+			}
+
+			.meta-logo-container {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				margin-top: 32px;
+				gap: 4px;
+				color: #0866ff;
+				font-weight: 700;
+				font-size: 14px;
+			}
+
+			/* Footer Styling */
+			footer {
+				padding: 24px 40px;
+				background-color: #ffffff;
+				border-top: 1px solid #f0f2f5;
+				font-size: 12px;
+				color: #8a8d91;
+			}
+
+			.footer-content {
+				max-width: 1000px;
+				margin: 0 auto;
+			}
+
+			.footer-links {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 12px 16px;
+				list-style: none;
+				margin-bottom: 8px;
+			}
+
+			.footer-links a {
+				color: #8a8d91;
+				text-decoration: none;
+			}
+
+			.footer-links a:hover {
+				text-decoration: underline;
+			}
+
+			.copyright {
+				margin-top: 12px;
+			}
+
+			/* Responsive adjustments */
+			@media (max-width: 900px) {
+				.main-container {
+					flex-direction: column;
+				}
+				.left-section {
+					border-right: none;
+					border-bottom: 1px solid #e4e6eb;
+					padding: 30px;
+				}
+				.right-section {
+					padding: 40px 20px;
+					width: 100%;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="main-container">
+			<!-- Left Hero Section -->
+			<div class="left-section">
+				<div>
+					<svg class="fb-logo" viewBox="0 0 36 36" fill="currentColor">
+						<path
+							d="M20.181 35.87C29.094 34.741 36 27.16 36 18c0-9.941-8.059-18-18-18S0 8.059 0 18c0 8.332 5.672 15.34 13.381 17.35v-12.27h-4.22v-5.08h4.22v-3.87c0-4.168 2.48-6.47 6.281-6.47 1.82 0 3.722.325 3.722.325v4.09h-2.1c-2.066 0-2.71 1.282-2.71 2.597v3.328h4.61l-.737 5.08h-3.873v12.27z" />
+					</svg>
+				</div>
+
+				<!-- Graphic Visual Collage -->
+				<div class="collage-container">
+					<div class="badge-emoji badge-laugh">😆</div>
+
+					<img
+						class="card-photo sub-plant"
+						src="https://images.unsplash.com/photo-1485955900006-10f4d324d411?auto=format&fit=crop&w=300&q=80"
+						alt="Plant" />
+					<img
+						class="card-photo main-portrait"
+						src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80"
+						alt="Person" />
+					<img
+						class="card-photo sub-skate"
+						src="https://images.unsplash.com/photo-1520045892732-304bc3ac5d8e?auto=format&fit=crop&w=300&q=80"
+						alt="Skateboard" />
+
+					<div class="badge-emoji badge-heart">♥</div>
+					<div class="avatar-circle">
+						<img
+							src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80"
+							alt="User Avatar" />
+					</div>
+				</div>
+
+				<h1 class="headline">
+					Explore<br />
+					the things<br />
+					<span class="blue-text">you love.</span>
+				</h1>
+			</div>
+
+			<!-- Right Login Selection Section -->
+			<div class="right-section">
+				<div class="login-header">
+					<h2>Log into Facebook</h2>
+					<i data-lucide="settings" class="gear-icon"></i>
+				</div>
+
+				<!-- User Account Cards -->
+				<div class="account-card" onclick="selectAccount('Jerald B. Sindol')">
+					<div class="account-info">
+						<img
+							class="profile-img"
+							src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=150&q=80"
+							alt="Jerald B. Sindol" />
+						<span class="account-name">Jerald B. Sindol</span>
+					</div>
+					<i data-lucide="chevron-right" class="arrow-icon"></i>
+				</div>
+
+				<div class="account-card" onclick="selectAccount('Jet Code')">
+					<div class="account-info">
+						<img
+							class="profile-img"
+							src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=150&q=80"
+							alt="Jet Code" />
+						<span class="account-name">Jet Code</span>
+					</div>
+					<i data-lucide="chevron-right" class="arrow-icon"></i>
+				</div>
+
+				<!-- Action Buttons -->
+				<button
+					class="btn btn-secondary"
+					onclick="alert('Redirecting to login form...')">
+					Use another profile
+				</button>
+				<button
+					class="btn btn-primary-outline"
+					onclick="alert('Redirecting to registration...')">
+					Create new account
+				</button>
+
+				<!-- Meta Footer Brand -->
+				<div class="meta-logo-container">
+					<svg width="20" height="20" viewBox="0 0 24 24" fill="#0866ff">
+						<path
+							d="M12 2C6.477 2 2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.129 22 16.99 22 12c0-5.523-4.477-10-10-10z" />
+					</svg>
+					<span>Meta</span>
+				</div>
+			</div>
+		</div>
+
+		<!-- Footer Links Section -->
+		<footer>
+			<div class="footer-content">
+				<ul class="footer-links">
+					<li><a href="#">English (US)</a></li>
+					<li><a href="#">Filipino</a></li>
+					<li><a href="#">Bisaya</a></li>
+					<li><a href="#">Español</a></li>
+					<li><a href="#">日本語</a></li>
+					<li><a href="#">한국어</a></li>
+					<li><a href="#">中文(简体)</a></li>
+					<li><a href="#">More languages...</a></li>
+				</ul>
+				<div style="border-top: 1px solid #ebedf0; margin: 8px 0"></div>
+				<ul class="footer-links">
+					<li><a href="#">Sign Up</a></li>
+					<li><a href="#">Log In</a></li>
+					<li><a href="#">Messenger</a></li>
+					<li><a href="#">Facebook Lite</a></li>
+					<li><a href="#">Video</a></li>
+					<li><a href="#">Meta Pay</a></li>
+					<li><a href="#">Meta Store</a></li>
+					<li><a href="#">Meta Quest</a></li>
+					<li><a href="#">Ray-Ban Meta</a></li>
+					<li><a href="#">Meta AI</a></li>
+					<li><a href="#">Instagram</a></li>
+					<li><a href="#">Threads</a></li>
+					<li><a href="#">Privacy Policy</a></li>
+					<li><a href="#">Privacy Center</a></li>
+					<li><a href="#">About</a></li>
+					<li><a href="#">Create ad</a></li>
+					<li><a href="#">Create Page</a></li>
+					<li><a href="#">Developers</a></li>
+					<li><a href="#">Careers</a></li>
+					<li><a href="#">Cookies</a></li>
+					<li><a href="#">Ad choices</a></li>
+					<li><a href="#">Terms</a></li>
+					<li><a href="#">Help</a></li>
+					<li><a href="#">Contact Uploading & Non-Users</a></li>
+				</ul>
+				<div class="copyright">Meta © 2026</div>
+			</div>
+		</footer>
+
+		<!-- Initialize Lucide Icons -->
+		<script>
+			lucide.createIcons();
+
+			function selectAccount(name) {
+				alert("Logging in as " + name);
+			}
+		</script>
+	</body>
+</html>

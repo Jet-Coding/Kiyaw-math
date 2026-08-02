@@ -1,6 +1,20 @@
 const db = require("../routes/db-config");
-const bcrypt = require("bcrypt.js");
+const bcrypt = require("bcryptjs");
 
 const register = async (req, res) => {
-	const { name, email, password, passwordConfirm } = req.body;
+	const { email, password: Npassword } = req.body;
+	if (!email || !Npassword)
+		return res.json({
+			status: "error",
+			error: "Please enter your email and password",
+		});
+	else {
+		db.query(
+			"SELECT email FROM users WHERE email = ?",
+			[email],
+			async (err, result) => {},
+		);
+	}
 };
+
+module.exports = register;
